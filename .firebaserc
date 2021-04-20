@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "angularmychatapp-d16fe"
+  },
+  "targets": {
+    "angularmychatapp-d16fe": {
+      "hosting": {
+        "AngularMyApp": [
+          "angularmychatapp-d16fe"
+        ]
+      }
+    }
   }
 }
