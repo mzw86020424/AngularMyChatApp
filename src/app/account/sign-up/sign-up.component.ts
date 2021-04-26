@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Password } from "../../class/chat";
+import { SessionService } from "../../service/session.service";
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor() { }
+  public account =new Password();
 
-  ngOnInit(): void {
+  constructor(private session: SessionService) { }
+
+  ngOnInit() {
+  }
+
+  // アカウント作成
+  submitSignUp(e: Event): void {
+    e.preventDefault();
+    // パスワード確認
+    if (this.account.password !== this.account.passwordConfirmation) {
+      alert('パスワードが異なります。');
+      return;
+    }
+    this.session.signup(this.account);
+    this.account.reset();
   }
 
 }

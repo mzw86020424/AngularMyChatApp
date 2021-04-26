@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Session } from "./../class/chat";
 
 import { SessionService } from "../service/session.service";
+import { Session } from "./../class/chat";
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,7 @@ import { SessionService } from "../service/session.service";
 })
 export class HeaderComponent implements OnInit {
 
-  public login: false;
+  public login = false;
 
   constructor(public sessionService: SessionService) { }
 
@@ -20,11 +20,9 @@ export class HeaderComponent implements OnInit {
         this.login = session.login;
       }
     });
-    // this.login = this.sessionService.session.login;
-    // console.log('header-component-login:'+ this.login);
   }
   logout(): void {
-    this.sessionService.logout;
+    this.sessionService.logout();
   }
 
 }
