@@ -1,3 +1,4 @@
+import { ThrowStmt } from "@angular/compiler";
 import * as moment from "moment";
 
 export class User {
@@ -38,6 +39,19 @@ export class Comment {
     this.date = date;
     this.key = key;
     this.editFlag = false;
+    return this;
+  }
+}
+
+export class Session {
+  login: boolean;
+
+  constructor() {
+    this.login = false;
+  }
+
+  reset(): Session {
+    this.login = false;
     return this;
   }
 }

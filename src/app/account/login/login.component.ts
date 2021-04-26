@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from "../../service/session.service";
+
+import { Subject } from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public loginSubject: Subject<number> = new Subject();
+  public loginState = this.loginSubject.asObservable();
+  public count = 0;
 
-  ngOnInit(): void {
+  constructor(private SessionService: SessionService) { }
+
+  ngOnInit() { }
+
+  submitLogin() {
+    this.SessionService.login();
   }
 
 }
