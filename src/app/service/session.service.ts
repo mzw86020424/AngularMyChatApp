@@ -20,9 +20,9 @@ export class SessionService {
     private afAuth: AngularFireAuth
   ) { }
 
-  login(acount: Password): void {
+  login(account: Password): void {
     this.afAuth
-      .signInWithEmailAndPassword(account.email, acount.password)
+      .signInWithEmailAndPassword(account.email, account.password)
       .then(auth => {
         // メールアドレス確認が済んでいるかどうか
         if (!auth.user.emailVerified) {
